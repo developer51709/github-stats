@@ -35,6 +35,10 @@
     .steps ol { padding-left: 20px; }
     .steps a { color: #0969da; }
     .steps code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; color: #2a7; }
+    .troubleshoot { margin-top: 24px; width: 100%; max-width: 520px; padding: 16px 18px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 10px; font-size: 13px; color: #7c2d12; line-height: 1.8; }
+    .troubleshoot strong { color: #9a3412; }
+    .troubleshoot a { color: #c2410c; }
+    .troubleshoot code { background: #fed7aa; padding: 2px 6px; border-radius: 4px; font-size: 12px; color: #7c2d12; }
     .footer { margin-top: 32px; font-size: 13px; color: #ccc; }
     .footer a { color: #aaa; }
     #loading { display: none; margin: 40px 0; color: #999; font-size: 14px; }
@@ -74,6 +78,13 @@
       <li>Copy the Markdown and paste into any README</li>
     </ol>
     <p style="margin-top:8px"><a href="https://github.com/Rhizobium-gits/github-stats">Fork the repo here</a> &mdash; Add <code>GH_TOKEN</code> secret, run the Action, done.</p>
+  </div>
+
+  <div class="troubleshoot">
+    <p><strong>カードが更新されない / Card not updating?</strong></p>
+    <p>Actions ログに <code>401 Unauthorized</code> が出ていたら <strong>PAT の期限切れ</strong>です（無料枠超過ではありません）。<a href="https://github.com/settings/tokens?type=beta">Fine-grained PAT</a> を再発行して <code>GH_TOKEN</code> シークレットを更新してください。</p>
+    <p style="margin-top:6px">If you see <code>401 Unauthorized</code> in the Actions log, your <strong>PAT has expired</strong> (not a free-tier issue). Generate a new <a href="https://github.com/settings/tokens?type=beta">Fine-grained PAT</a> and update the <code>GH_TOKEN</code> secret.</p>
+    <p style="margin-top:6px">详细修复步骤见 <a href="https://github.com/Rhizobium-gits/github-stats#故障排除卡片不再更新时">README 故障排除</a> / Full steps in the <a href="https://github.com/Rhizobium-gits/github-stats#troubleshooting-when-your-card-stops-updating">README troubleshooting section</a>.</p>
   </div>
 
   <div class="footer"><a href="https://github.com/Rhizobium-gits/github-stats">GitHub</a></div>
