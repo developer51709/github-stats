@@ -166,7 +166,7 @@ function uniquifyIds(text: string, prefix: string): string {
     result = result.replace(new RegExp(`id="${id}"`, 'g'), `id="${uid}"`);
     result = result.replace(new RegExp(`url\\(#${id}\\)`, 'g'), `url(#${uid})`);
     result = result.replace(new RegExp(`href="#${id}"`, 'g'), `href="#${uid}"`);
-    result = result.replace(new RegExp(`xlink:href="#${id}"`, 'g'), `xlink:href="#${uid}"`);
+    result = result.replace(new RegExp(`xlink:href="#${id}"`, 'g'), `href="#${uid}"`);
   });
   return result;
 }
