@@ -507,6 +507,10 @@ async function main() {
 
   o += `</svg>`;
 
+  // 🐱 Strip out any remaining xlink namespace prefixes from mixed/nested content
+  // Using a fallback placeholder prefix since this sanitizes the whole file
+  o = o.replace(/xlink:href="/g, 'href="');
+
   const outPath = path.join(outDir, `stats-${theme}.svg`);
   fs.writeFileSync(outPath, o);
   console.log(`  ${theme}: ${(o.length / 1024).toFixed(1)} KB`);
