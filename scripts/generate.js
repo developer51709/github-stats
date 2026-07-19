@@ -179,8 +179,9 @@ async function fetchAvatar(url) {
   try {
     const res = await fetch(`${url}&s=96`);
     if (!res.ok) return null;
-    const buf = Buffer.from(await res.arrayBuffer());
-    return `data:${res.headers.get("content-type") || "image/png"};base64,${buf.toString("base64")}`;
+    // const buf = Buffer.from(await res.arrayBuffer());
+    // return `data:${res.headers.get("content-type") || "image/png"};base64,${buf.toString("base64")}`;
+    return `${url}&s=96`;
   } catch { return null; }
 }
 
