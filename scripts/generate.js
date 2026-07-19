@@ -40,7 +40,7 @@ function uniquifyIds(text, prefix) {
     result = result.replace(new RegExp(`id="${id}"`, 'g'), `id="${uid}"`);
     result = result.replace(new RegExp(`url\\(#${id}\\)`, 'g'), `url(#${uid})`);
     result = result.replace(new RegExp(`href="#${id}"`, 'g'), `href="#${uid}"`);
-    result = result.replace(new RegExp(`xlink:href="#${id}"`, 'g'), `xlink:href="#${uid}"`);
+    result = result.replace(new RegExp(`xlink:href="#${id}"`, 'g'), `href="#${uid}"`);
   });
   return result;
 }
@@ -179,9 +179,8 @@ async function fetchAvatar(url) {
   try {
     const res = await fetch(`${url}&s=96`);
     if (!res.ok) return null;
-    // const buf = Buffer.from(await res.arrayBuffer());
-    // return `data:${res.headers.get("content-type") || "image/png"};base64,${buf.toString("base64")}`;
-    return `${url}&s=96`;
+    const buf = Buffer.from(await res.arrayBuffer());
+    return `data:${res.headers.get("content-type") || "image/png"};base64,${buf.toString("base64")}`;
   } catch { return null; }
 }
 
